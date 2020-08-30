@@ -7,11 +7,12 @@ import { SharedModule } from 'src/shared/shared.module';
 import { AppRoutingModule } from './app.routing.module';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { HomeModule } from './home/home.module';
+import { AsyncLoading } from 'src/shared/pipes/async-loading.pipe';
 
 @NgModule({
   declarations: [
     DashboardComponent,
-    AppComponent
+    AppComponent,
   ],
   imports: [
     AppRoutingModule,

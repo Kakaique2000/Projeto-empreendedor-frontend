@@ -1,0 +1,36 @@
+<mat-chip-list>
+
+  <!-- Categorias ============= -->
+  <div id="categorias" *ngIf="categorias$ | asyncLoading | async, let categorias">
+
+    <mat-chip color="accent" selected [matMenuTriggerFor]="menuCategoria" aria-label="categoria">
+        categoria: {{ categorias.loading ? 'carregando...' : categoriaSelected.label }}
+        <mat-icon>keyboard_arrow_down
+        </mat-icon>
+    </mat-chip>
+    
+    <mat-menu #menuCategoria="matMenu">
+      <button *ngFor="let categoria of categorias.value" (click)="selectCategoria(categoria) " mat-menu-item>
+        <span>{{ categoria.label }}</span>
+      </button>
+    </mat-menu>
+  </div>
+
+  <!-- distancias ============= -->
+  <div id="distancias" *ngIf="distancias$ | asyncLoading | async, let distancias">
+
+    <mat-chip color="accent" selected [matMenuTriggerFor]="menuDistancia" aria-label="distância">
+        distância: {{ distancias.loading ? 'carregando...' : distanciaSelected?.label }}
+        <mat-icon>keyboard_arrow_down
+        </mat-icon>
+    </mat-chip>
+    
+    <mat-menu #menuDistancia="matMenu">
+      <button *ngFor="let distancia of distancias.value" (click)="selectDistancia(distancia)" mat-menu-item>
+        <span>{{ distancia.label }}</span>
+      </button>
+    </mat-menu>
+  </div>
+
+
+</mat-chip-list>
