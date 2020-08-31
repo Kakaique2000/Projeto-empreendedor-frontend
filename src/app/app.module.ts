@@ -8,6 +8,7 @@ import { AppRoutingModule } from './app.routing.module';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { HomeModule } from './home/home.module';
 import { AsyncLoading } from 'src/shared/pipes/async-loading.pipe';
+import { HomeLoginModule } from './login-home/home-login.module';
 
 @NgModule({
   declarations: [
@@ -19,7 +20,8 @@ import { AsyncLoading } from 'src/shared/pipes/async-loading.pipe';
     SharedModule,
     BrowserModule,
     HomeModule,
-    BrowserAnimationsModule
+    HomeLoginModule,
+    BrowserAnimationsModule    
   ],
   providers: [],
   bootstrap: [AppComponent]
