@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 
 @Component({
   selector: 'app-search-card',
@@ -8,14 +8,23 @@ import { Component, OnInit } from '@angular/core';
 export class SearchCardComponent implements OnInit {
 
   searchQuery = ''
+  @Input() contracted = false
+  @Output() contractedChange = new EventEmitter<boolean>()
 
   constructor() { }
 
   ngOnInit() {
   }
 
-  test() {
-    console.log('teste')
+  setContracted(contracted: boolean) {
+    this.contracted = contracted;
+    this.contractedChange.emit(this.contracted);
   }
+
+  search(term: string) {
+    alert(term);
+    this.setContracted(false);
+  }
+  
 
 }

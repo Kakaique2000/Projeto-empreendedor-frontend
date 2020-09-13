@@ -1,6 +1,9 @@
 <main>
-  
-    <app-search-card>
+
+    <app-search-card [(contracted)]="contractedSearchCard">
     </app-search-card>
+  
+    <app-job-list (click)="shrinkSearchCard(true)">
+    </app-job-list>
 
 </main>
