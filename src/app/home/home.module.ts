@@ -9,9 +9,10 @@ import { SearchInputComponent } from './search-card/search-input/search-input.co
 import { SearchParamsComponent } from './search-card/search-params/search-params.component';
 import { HttpClientModule } from '@angular/common/http';
 import { SearchParamsService } from './search-card/search-params/search-params.service';
+import { JobListComponent } from './job-list/job-list.component';
 
 @NgModule({
-  declarations: [HomeComponent, SearchCardComponent, SearchInputComponent, SearchParamsComponent],
+  declarations: [HomeComponent, SearchCardComponent, SearchInputComponent, SearchParamsComponent, JobListComponent],
   imports: [
     HttpClientModule,
     FormsModule,

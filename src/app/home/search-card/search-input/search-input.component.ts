@@ -10,6 +10,8 @@ export class SearchInputComponent implements OnInit {
   searchQuery = '';
 
   @Output() search = new EventEmitter();
+  @Output() blur = new EventEmitter();
+  @Output() focus = new EventEmitter();
 
   constructor() { }
 

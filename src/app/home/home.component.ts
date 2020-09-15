@@ -7,7 +7,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HomeComponent implements OnInit {
 
+  contractedSearchCard: boolean;
+
   constructor() { }
+
+  shrinkSearchCard(contracted: boolean) {
+    console.log(contracted);
+    
+    this.contractedSearchCard = contracted;
+  }
 
   ngOnInit() {
   }
