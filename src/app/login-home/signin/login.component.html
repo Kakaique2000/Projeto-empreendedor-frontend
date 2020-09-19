@@ -28,9 +28,23 @@
                 </button>
 
 
-            </form>
-
-            <p>Não é um usuário?<a [routerLink]="['register']"> Cadastre-se</a></p>
+            </form>  
+               
+            <div class="row mt-1">
+                <div class="col ">
+                    <input name="lem_senha" type="checkbox" >
+                    <a> Continuar conectado </a>
+                </div>
+                <div class="col">
+                    <div class="text-right">
+                        <a href="#" class="ls-login-forgot text-right" >Esqueci minha senha</a>
+                    </div>
+                    
+                </div>
+              </div>
+                
+            
+            <p class="form mt-3">Não é um usuário?<a [routerLink]="['register']"  > Cadastre-se</a></p>
         </div>
     </div>
 </div>
