@@ -11,17 +11,19 @@
 
                 <div class="form-group">
                     <input formControlName="userName" class="form-control" placeholder="user name" autofocus>
-                </div>
+                
                 <small *ngIf="loginForm.get('userName').errors?.required" class="text-danger d-block">
                     usuário obrigatório!
                 </small>
+            </div>
 
                 <div class="form-group">
                     <input formControlName="password" type="password" class="form-control" placeholder="password">
-                </div>
+                
                 <small *ngIf="loginForm.get('password').errors?.required" class="text-danger d-block">
                     Senha obrigatória!
                 </small>
+            </div>
 
                 <button [disabled]="loginForm.invalid" type="submit" class="btn btn-primary btn-block">
                     entrar

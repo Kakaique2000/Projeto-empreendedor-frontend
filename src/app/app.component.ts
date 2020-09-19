@@ -17,4 +17,5 @@ export class AppComponent {
   this.sideMenuOpened = !this.sideMenuOpened
 }
 
+
 }
