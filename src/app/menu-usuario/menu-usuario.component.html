@@ -1,0 +1,181 @@
+<h2 class="text-center">Meu Perfil</h2>
+<div class="ml-2 mt-2 w-100 p-5">
+  <div class="d-flex align-items-center justify-content-between w-100 py-2">
+    <h4>Informações pessoais:</h4>
+    <div class="d-flex align-items-center">
+      <div id="remover_infos_pessoais" class="mx-2">
+        <a class="btn btn-outline-danger" (click)="preencher_infos_pessoais()"
+          >Limpar</a
+        >
+      </div>
+      <div id="salvar_infos_pessoais" class="mx-2">
+        <a
+          class="btn btn-success"
+          (click)="salvar_infos_pessoais(); editar_infos_pessoais()"
+          >Salvar</a
+        >
+      </div>
+      <div
+        class="editar"
+        id="edit_infos_pessoais"
+        (click)="editar_infos_pessoais()"
+      >
+      <div class="card">
+        <div class=" d-flex p-3">
+        <div class="mr-2">editar</div>
+          <mat-icon>edit</mat-icon>
+        </div>
+      </div>
+      </div>
+    </div>
+  </div>
+  <div class="card p-5">
+    <mat-form-field class="w-100">
+      <mat-label>Nome</mat-label>
+      <input matInput id="nome" [disabled]="edit_infos_pessoais" />
+    </mat-form-field>
+
+    <mat-form-field class="w-100">
+      <mat-label>Telefone</mat-label>
+      <input
+        matInput
+        id="telefone"
+        type="email"
+        [disabled]="edit_infos_pessoais"
+      />
+    </mat-form-field>
+
+    <mat-form-field class="w-100">
+      <mat-label>Email</mat-label>
+      <input matInput id="email" [disabled]="edit_infos_pessoais" />
+    </mat-form-field>
+
+    <div>
+      <mat-form-field class="col-6 p-0">
+        <mat-label>Endereço</mat-label>
+        <input matInput id="rua" [disabled]="edit_infos_pessoais" />
+      </mat-form-field>
+      <mat-form-field class="col-1">
+        <mat-label>Nº</mat-label>
+        <input
+          matInput
+          id="numero_rua"
+          type="number"
+          [disabled]="edit_infos_pessoais"
+        />
+      </mat-form-field>
+      <mat-form-field class="col-5 p-0">
+        <mat-label>Complemento</mat-label>
+        <input matInput id="complemento_rua" [disabled]="edit_infos_pessoais" />
+      </mat-form-field>
+    </div>
+  </div>
+</div>
+<div class="ml-2 mt-2 w-100 p-5">
+  <div class="d-flex align-items-center justify-content-between w-100 p-2">
+    <h2>Competências:</h2>
+    <div class="d-flex align-items-center">
+      <div id="adicionar_competencias" class="mx-2">
+        <a class="btn btn-warning" (click)="abrir_modal()"> Adicionar</a>
+      </div>
+      <div id="salvar_competencias" class="mx-2">
+        <a
+          class="btn btn-success"
+          (click)="salvar_competencias(); editar_competencias()"
+        >
+          Salvar</a
+        >
+      </div>
+      <div
+        class="editar"
+        id="edit_competencias"
+        (click)="editar_competencias()"
+      >
+      <div class="card">
+      <div class=" d-flex p-3">
+      <div class="mr-2">editar</div>
+        <mat-icon>edit</mat-icon>
+      </div>
+    </div>
+      </div>
+    </div>
+  </div>
+  <div class="card p-5">
+    <div
+      *ngFor="let elemento of dadosMocados.competencias;  let i = index"
+      class="item_lista_competencia"
+    >
+      <div class="d-flex align-items-center w-100">
+
+
+          <input type="checkbox"  id='{{"competencia_"+i}}' disabled="edit_competencias" checked="true">
+
+          <input
+          value="{{ elemento.titulo }}"
+          disabled="edit_competencias"
+          class="entrada_dados"
+          style="width: 78vw"
+          id="{{'competencia_titulo_'+i}}"
+          />
+          <h6 class="col">
+            Nota:
+            <input
+            value="{{ elemento.nota }}"
+            disabled="edit_competencias"
+            class="entrada_dados"
+            style="width: 2.3rem"
+            type="number"
+            max="10"
+            min="0"
+            id="{{'competencia_nota_'+i}}"
+          />
+        </h6>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div id="modal" class="modal">
+  <div class="conteudo_modal">
+    <div class="d-flex align-items-center justify-content-between w-100 p-2">
+      <h4>Adicionar nova compretência</h4>
+      <mat-icon
+        id="fechar_modal"
+        class="editar"
+        (click)="fechar_modal(); cancelar_nova_competencia()"
+        >close</mat-icon
+      >
+    </div>
+    <div>
+      <mat-form-field class="col-9 p-0" appearance="outline">
+        <mat-label>Competência</mat-label>
+        <input matInput id="nova_competencia_titulo" />
+      </mat-form-field>
+      <mat-form-field class="col-3" appearance="outline">
+        <mat-label>Nota</mat-label>
+        <input
+          matInput
+          id="nova_competencia_nota"
+          type="number"
+          max="10"
+          min="0"
+        />
+      </mat-form-field>
+    </div>
+    <div class="d-flex justify-content-between">
+      <div  class="alerta_campos_faltando">
+        <h4 id="alerta_campos_faltando" >Por favor verificar se todos os campos foram preenchidos</h4>
+      </div>
+      <div>
+      <a class="btn btn-success mx-3" (click)="adicionar_competencias()">
+        Salvar</a
+      >
+      <a class="btn btn-outline-danger" (click)="cancelar_nova_competencia()"
+        >Limpar</a
+      >
+      </div>
+
+    </div>
+
+  </div>
+</div>

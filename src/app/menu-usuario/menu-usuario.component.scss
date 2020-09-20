@@ -1,0 +1,46 @@
+.editar{
+  cursor: pointer;
+}
+.editar :hover{
+  background-color: lightgray;
+  border-radius: 5px;
+}
+
+.item_lista_competencia{
+  border-bottom: 0.5px solid lightgray;
+}
+
+.entrada_dados :enabled :hover{
+  background-color:lightskyblue !important;
+}
+
+.entrada_dados{
+  border: 0px solid transparent;
+  background: none;
+  color:black
+}
+
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color:rgba(0, 0, 0, 0.295);
+}
+.conteudo_modal {
+  z-index: 2000;
+  background-color: whitesmoke;
+  margin: 15% auto;
+  padding: 20px;
+  border: 1px solid gray;
+  width: 80%;
+  opacity: 100% !important;
+}
+.alerta_campos_faltando{
+  color:red;
+  font-weight: bold;
+}
