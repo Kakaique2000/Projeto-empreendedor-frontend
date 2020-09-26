@@ -15,7 +15,9 @@
   <section class="space-flex" id="main-content">
     <mat-sidenav-container class="h100">
       <mat-sidenav [opened]="sideMenuOpened" mode="side" position="end">
-        <div style="width: 200px"></div>
+        <div style="width: 200px">
+          <p style="text-align:center; margin-top: 10px;"><a [routerLink]="['newjob']" (click)="clickMenu()"> Criar uma Vaga</a></p>
+      </div>
       </mat-sidenav>
       <mat-sidenav-content>
         <router-outlet></router-outlet>
