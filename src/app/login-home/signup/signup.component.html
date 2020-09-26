@@ -4,21 +4,25 @@
             <img class="img-fluid d-none d-sm-block mt-4"
                 src="https://100noticia.com.br/wp-content/uploads/2019/08/20190819_081114.jpg" alt="Welcome">
         </div>
-        <div class="col-md-6">
+        <div class="col-md-6"  *ngIf = "flag; else UserRegister">
 
             <h4 class="text-center mt-4"> Registra ae para achar seu empreguin!</h4>
 
-            <form [formGroup]="signupForm" class="form mt-4">
+            <form [formGroup]="signupForm" class="form mt-4" (submit)= "signup()">
                 <div class="form-group">
-                    <input formControlName="email" placeholder="email" class="form-control" autofocus>
+                    <input formControlName="firstName" placeholder="Nome" class="form-control" autofocus>
                 </div>
 
                 <div class="form-group">
-                    <input formControlName="fullName" placeholder="Nome Completo" class="form-control">
+                    <input formControlName="lastName" placeholder="Sobrenome" class="form-control" autofocus>
                 </div>
 
                 <div class="form-group">
-                    <input formControlName="userName" placeholder="usuário" class="form-control">
+                    <input formControlName="email" placeholder="E-mail" class="form-control">
+                </div>
+
+                <div class="form-group">
+                    <input formControlName="cpf" placeholder="CPF" class="form-control">
                 </div>
 
                 <div class="form-group">
@@ -28,7 +32,15 @@
                 <button [disabled]="signupForm.invalid" class="btn btn-primary btn-block">Registrar</button>
 
                 <p>Já é um usuário?<a [routerLink]="['']"> Logar!</a></p>
+
+                
+
             </form>
         </div>
+        <ng-template #UserRegister>
+            <div class="col-md-6 mt-4">
+                <h4>Usuário criado agora é só se<a [routerLink]="['']"> Logar!</a></h4>     
+             </div>   
+    </ng-template>
     </div>
 </div>

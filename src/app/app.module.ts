@@ -11,6 +11,7 @@ import { AsyncLoading } from 'src/shared/pipes/async-loading.pipe';
 import { HomeLoginModule } from './login-home/home-login.module';
 import { NewJobComponent } from './new-job/new-job.component';
 import { NewJobModule } from './new-job/new-job.module';
+import { HttpClient } from '@angular/common/http';
 
 @NgModule({
   declarations: [

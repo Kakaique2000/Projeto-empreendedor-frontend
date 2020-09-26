@@ -26,19 +26,19 @@ export class LoginComponent implements OnInit{
     }
 
     login() {
-        /*
-        const userName = this.loginForm.get('userName').value;
+        
+        const email = this.loginForm.get('userName').value;
         const password = this.loginForm.get('password').value;
-        this.loginService.authenticate(userName, password)
+        this.loginService.authenticate(email, password)
         .subscribe(() => {
-            console.log("ok");
+            this.router.navigateByUrl('home');
         },
         erro => {
-            alert(erro);
+            alert('email/senha errada ;(');
             this.loginForm.reset();
         })
-        */
-        this.router.navigateByUrl('home');
+        
+        
     }
     
 
