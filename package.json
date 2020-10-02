@@ -1,6 +1,6 @@
 {
   "name": "projeto-emprego-frontend",
-  "version": "0.0.0",
+  "version": "1.0.0",
   "scripts": {
     "ng": "ng",
     "start:no-mock": "ng serve",
