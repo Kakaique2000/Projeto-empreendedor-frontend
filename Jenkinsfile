@@ -19,6 +19,7 @@ node {
       
          try {
             sh 'docker stop frontend-emprego'
+            sh 'docker rm frontend-emprego'
         } catch(Exception ex) {
          println("nao foi possivel parar o container frontend-emprego: " + ex)
         }
