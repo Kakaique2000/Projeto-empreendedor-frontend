@@ -1,4 +1,4 @@
-# Feito pelo Kaiqeuinho Chave da cidade tlgd nee
+// Feito pelo Kaiquinho o mais vitorioso da cidade
 node {
     def app
     stage('Checkout') {
