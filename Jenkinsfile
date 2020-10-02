@@ -17,7 +17,7 @@ node {
         } catch(Exception ex) {
          println("nao foi possivel parar o container frontend-emprego" + ex)
         }
-        sh 'docker image prune'
-        sh 'docker run -d -p 80:80 -n frontend-emprego kakaique2000/front-emprego:latest'
+        sh 'docker image prune -f'
+        sh 'docker run -d -p 80:80 --name frontend-emprego kakaique2000/front-emprego:latest'
     }
 }
