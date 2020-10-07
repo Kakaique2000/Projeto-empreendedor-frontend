@@ -9,7 +9,7 @@ node {
         def packageJSON = readJSON file: 'package.json'
         def packageJSONVersion = packageJSON.version
       
-        app = docker.build("kakaique2000/front-emprego:" + packageJSONVersion)
+        app = docker.build("kakaique2000/frontend-emprego:" + packageJSONVersion)
     }
     stage('Publish (docker hub)') {
         app.push()
@@ -24,6 +24,6 @@ node {
          println("nao foi possivel parar o container frontend-emprego: " + ex)
         }
         sh 'docker image prune -f'
-        sh 'docker run -d -p 80:80 --name frontend-emprego kakaique2000/front-emprego:latest'
+        sh 'docker run -d -p 80:80 --name frontend-emprego kakaique2000/frontend-emprego:latest'
     }
 }
