@@ -2,8 +2,9 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { IUsuario } from '../home/search-card/search-params/search-params.models';
 import { NewUser } from './signup/new-user';
+import { environment } from 'src/environments/environment';
 
-   const API_URL = 'http://localhost:8080/auth/';
+   const API_URL = environment.api + '/auth/';
 @Injectable({
     providedIn: 'root'
 })
