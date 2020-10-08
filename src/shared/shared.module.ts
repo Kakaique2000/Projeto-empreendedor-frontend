@@ -33,6 +33,7 @@ import {MatTableModule} from '@angular/material/table';
 import {MatSortModule} from '@angular/material/sort';
 import {MatPaginatorModule} from '@angular/material/paginator';
 import { AsyncLoading } from './pipes/async-loading.pipe';
+import { NgxMaskModule } from 'ngx-mask';
 
 const matModules = [
   MatCheckboxModule,
@@ -74,12 +75,14 @@ const matModules = [
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
-    ...matModules
+    ...matModules,
+    NgxMaskModule.forRoot(),
   ],
   exports: [
     BrowserModule,
     BrowserAnimationsModule,
     AsyncLoading,
+    NgxMaskModule,
     ...matModules,
   ],
   providers: [],

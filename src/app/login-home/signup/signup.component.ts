@@ -41,8 +41,8 @@ export class SignupComponent implements OnInit{
             cpf: ['',
                 [
                     Validators.required,
-                    Validators.minLength(5),
-                    Validators.maxLength(6)
+                    Validators.minLength(11),
+                    Validators.maxLength(11)
                 ]
             ],
             password: ['',
