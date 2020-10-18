@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpParams } from '@angular/common/http';
 import { IUsuario } from '../home/search-card/search-params/search-params.models';
 import { NewUser } from './signup/new-user';
 import { environment } from 'src/environments/environment';
@@ -31,6 +31,20 @@ export class HomeLoginService {
 
         return this.http.post(API_URL + 'signup',
          {firstName, lastName,email, password, gender,cpf, phone, recruiter});
+    }
+
+    sendEmail(email: string) {
+        const params = new HttpParams({
+            fromObject: {
+                email: email
+            }
+          });
+        
+        return this.http.post(API_URL + 'reset-password?',{},{params: params});
+    }
+
+    novaSenha(token: string, password: string, passwordConfirmation: string) {
+      return this.http.post(API_URL + 'reset-password/handle',{token,password,passwordConfirmation});
     }
 
 

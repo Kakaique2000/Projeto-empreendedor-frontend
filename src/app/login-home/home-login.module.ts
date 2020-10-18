@@ -7,10 +7,12 @@ import { SignupComponent } from './signup/signup.component';
 import { HttpClientModule } from '@angular/common/http';
 import { NgxMaskModule } from 'ngx-mask';
 import { SharedModule } from 'src/shared/shared.module';
+import { ResetPasswordComponent } from './reset-password/reset-password';
+import { NewPasswordComponent } from './new-senha/new-password';
 
 
 @NgModule({
-    declarations: [LoginComponent, SignupComponent],
+    declarations: [LoginComponent, SignupComponent, ResetPasswordComponent, NewPasswordComponent],
     imports: [HttpClientModule, ReactiveFormsModule, SharedModule, CommonModule, RouterModule, FormsModule,
         ]
 })
