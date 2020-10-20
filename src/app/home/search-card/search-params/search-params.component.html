@@ -4,14 +4,14 @@
   <div id="categorias" *ngIf="categorias$ | asyncLoading | async, let categorias">
 
     <mat-chip color="accent" selected [matMenuTriggerFor]="menuCategoria" aria-label="categoria">
-        categoria: {{ categorias.loading ? 'carregando...' : categoriaSelected.label }}
+        categoria: {{ categorias.loading ? 'carregando...' : categoriaSelected.name }}
         <mat-icon>keyboard_arrow_down
         </mat-icon>
     </mat-chip>
     
     <mat-menu #menuCategoria="matMenu">
       <button *ngFor="let categoria of categorias.value" (click)="selectCategoria(categoria) " mat-menu-item>
-        <span>{{ categoria.label }}</span>
+        <span>{{ categoria.name }}</span>
       </button>
     </mat-menu>
   </div>
