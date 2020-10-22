@@ -25,12 +25,12 @@ export class NewPasswordComponent implements OnInit{
     sendEmail() {
         const senha = this.novaSenhaForm.get('senha').value;
         const senhaConfirma = this.novaSenhaForm.get('senhaConfirma').value;
-        const token : string = 'cf41b650-f46f-4c08-bfbe-d8378fa82490';
+        const token : string = '20d670c2-27e5-4e86-8a55-9ecc5f5eee95';
     
         this.loginService.novaSenha(token,senha, senhaConfirma)
-        .subscribe(() => {
-            console.log("chegou")
-            alert('ok');
+        .subscribe((res) => {
+            console.log(res)
+            alert(res);
         },
         erro => {
             console.error(erro);

@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpParams } from '@angular/common/http';
+import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 import { IUsuario } from '../home/search-card/search-params/search-params.models';
 import { NewUser } from './signup/new-user';
 import { environment } from 'src/environments/environment';
@@ -40,13 +40,11 @@ export class HomeLoginService {
             }
           });
         
-        return this.http.post(API_URL + 'reset-password?',{},{params: params});
+        return this.http.post(API_URL + 'reset-password?',{},{params: params,responseType: 'text'});
     }
 
     novaSenha(token: string, password: string, passwordConfirmation: string) {
-      return this.http.post(API_URL + 'reset-password/handle',{token,password,passwordConfirmation});
+      return this.http.post(API_URL + 'reset-password/handle',{token,password,passwordConfirmation},{ responseType: 'text'});
     }
-
-
     
 }

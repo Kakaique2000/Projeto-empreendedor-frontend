@@ -25,9 +25,8 @@ export class ResetPasswordComponent implements OnInit{
         const email = this.loginForm.get('email').value;
     
         this.loginService.sendEmail(email)
-        .subscribe(() => {
-            console.log("chegou")
-            alert('ok');
+        .subscribe((res) => {
+            alert(res);
         },
         erro => {
             console.error(erro);

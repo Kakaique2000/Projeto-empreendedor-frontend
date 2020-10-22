@@ -62,7 +62,7 @@ export class SignupComponent implements OnInit{
             this.flag = false;
         },
         erro => {
-            alert('erro ao se cadastrar');
+            alert(erro);
             this.signupForm.reset();
         })
     }
