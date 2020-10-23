@@ -16,6 +16,8 @@
     <mat-sidenav-container class="h100">
       <mat-sidenav [opened]="sideMenuOpened" mode="side" position="end">
         <div style="width: 200px">
+          <p style="text-align:center; margin-top: 10px;"><a [routerLink]="['home']" (click)="clickMenu()"> Buscar vagas</a></p>
+          <p style="text-align:center; margin-top: 10px;"><a [routerLink]="['editprofile']" (click)="clickMenu()"> Editar perfil</a></p>
           <p style="text-align:center; margin-top: 10px;"><a [routerLink]="['newjob']" (click)="clickMenu()"> Criar uma Vaga</a></p>
       </div>
       </mat-sidenav>

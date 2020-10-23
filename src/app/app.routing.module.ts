@@ -7,6 +7,7 @@ import { SignupComponent } from './login-home/signup/signup.component';
 import { NewJobComponent } from './new-job/new-job.component';
 import { ResetPasswordComponent } from './login-home/reset-password/reset-password';
 import { NewPasswordComponent } from './login-home/new-senha/new-password';
+import { MenuUsuarioComponent } from './home/menu-usuario/menu-usuario.component';
 
 const routes: Routes = [
   { path: 'home',
@@ -32,6 +33,10 @@ const routes: Routes = [
   { path: 'reset-password', 
   component: NewPasswordComponent,
   data: {showSideMenu:false}
+  },
+  { path: 'editprofile', 
+  component: MenuUsuarioComponent,
+  data: {showSideMenu:true}
   },
   { path: 'dashboard', component: DashboardComponent },
 ];
