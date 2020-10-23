@@ -24,7 +24,7 @@ export class NewPasswordComponent implements OnInit{
 
     }
 
-    sendEmail() {
+    changePassword() {
         const senha = this.novaSenhaForm.get('senha').value;
         const senhaConfirma = this.novaSenhaForm.get('senhaConfirma').value;
 
@@ -36,12 +36,12 @@ export class NewPasswordComponent implements OnInit{
             this.flag =false;
         },
         erro => {
-            console.log(erro);
+            alert(erro);
             
         })
         },
         erro => {
-            console.log(erro);
+            alert(erro);
             
         })
     

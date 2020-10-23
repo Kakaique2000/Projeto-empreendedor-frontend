@@ -29,7 +29,7 @@ export class ResetPasswordComponent implements OnInit{
             alert(res);
         },
         erro => {
-            console.error(erro);
+            alert(erro);
             
             this.loginForm.reset();
         })
