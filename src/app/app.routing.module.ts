@@ -10,22 +10,28 @@ import { NewPasswordComponent } from './login-home/new-senha/new-password';
 
 const routes: Routes = [
   { path: 'home',
-   component: HomeComponent
+   component: HomeComponent,
+   data: {showSideMenu:true}
   },
   { path: 'register',
-   component: SignupComponent
+   component: SignupComponent,
+   data: {showSideMenu:false}
   },
   { path: 'newjob',
-   component: NewJobComponent
+   component: NewJobComponent,
+   data: {showSideMenu:true}
   },
   { path: 'resetpassword',
-   component: ResetPasswordComponent
+   component: ResetPasswordComponent,
+   data: {showSideMenu:false}
   },
   { path: '', 
-  component: LoginComponent
+  component: LoginComponent,
+  data: {showSideMenu:false}
   },
   { path: 'reset-password', 
-  component: NewPasswordComponent
+  component: NewPasswordComponent,
+  data: {showSideMenu:false}
   },
   { path: 'dashboard', component: DashboardComponent },
 ];

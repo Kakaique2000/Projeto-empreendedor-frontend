@@ -9,6 +9,8 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 import { HomeModule } from './home/home.module';
 import { HomeLoginModule } from './login-home/home-login.module';
 import { NewJobModule } from './new-job/new-job.module';
+import { HTTP_INTERCEPTORS } from '@angular/common/http';
+import { TokenInterceptor } from './token-interceptor';
 
 @NgModule({
   declarations: [
@@ -24,7 +26,10 @@ import { NewJobModule } from './new-job/new-job.module';
     BrowserAnimationsModule,
     NewJobModule,
   ],
-  providers: [],
+  providers: [{  provide: HTTP_INTERCEPTORS,
+    useClass: TokenInterceptor,
+    multi: true
+ },],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

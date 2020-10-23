@@ -6,7 +6,7 @@
     
       <div class="space-flex"></div>
     
-    <button (click)="clickMenu()" mat-icon-button>
+    <button *ngIf = 'showSideMenu' (click)="clickMenu()" mat-icon-button>
         <mat-icon dir="rtl" >{{ menuIcone }}</mat-icon>
       </button>
     </mat-toolbar>
