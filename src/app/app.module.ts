@@ -12,10 +12,16 @@ import { HomeLoginModule } from './login-home/home-login.module';
 import { NewJobComponent } from './new-job/new-job.component';
 import { NewJobModule } from './new-job/new-job.module';
 import { HttpClient } from '@angular/common/http';
-
+import { NovoUsarioComponent } from './novo-usuario/novo-usuario.component'
+import {MatSelectModule} from '@angular/material/select'
+import { LoginPageComponent } from './login-page/login-page.component'
+import { RedefinirSenhaCmponent } from './redefinir-senha/redefinir-senha.component'
 @NgModule({
   declarations: [
     DashboardComponent,
+    LoginPageComponent,
+    RedefinirSenhaCmponent,
+    NovoUsarioComponent,
     AppComponent,
   ],
   imports: [
@@ -25,7 +31,8 @@ import { HttpClient } from '@angular/common/http';
     HomeModule,
     HomeLoginModule,
     BrowserAnimationsModule,
-    NewJobModule  
+    NewJobModule,
+    MatSelectModule
   ],
   providers: [],
   bootstrap: [AppComponent]
