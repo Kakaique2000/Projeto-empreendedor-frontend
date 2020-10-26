@@ -5,7 +5,8 @@ import { Router } from '@angular/router';
 import { NewUser } from './new-user';
 
 @Component({
-    templateUrl :'./signup.component.html'
+    templateUrl: './signup.component.html',
+    styleUrls: ['./signup.component.scss']
 })
 export class SignupComponent implements OnInit{
     
@@ -45,6 +46,9 @@ export class SignupComponent implements OnInit{
                     Validators.maxLength(11)
                 ]
             ],
+            phone: ['', Validators.required],
+            gender: ['', Validators.required],
+            recruiter: ['', Validators.required],
             password: ['',
                 [
                     Validators.required,

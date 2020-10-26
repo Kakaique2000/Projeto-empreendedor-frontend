@@ -7,7 +7,8 @@ import { tap } from 'rxjs/operators';
 import { Router } from '@angular/router';
 
 @Component({
-    templateUrl :'./login.component.html'
+    templateUrl: './login.component.html',
+    styleUrls: ['./login.component.scss']
 })
 export class LoginComponent implements OnInit{
     
@@ -19,9 +20,11 @@ export class LoginComponent implements OnInit{
 
     ngOnInit(): void {
         this.loginForm = this.formBuilder.group({
-            userName:['', Validators.required],
-            password:['', Validators.required]
+            userName: ['', Validators.required],
+            password: ['', Validators.required]
         });
+
+        console.log(this.loginForm.get('password'));
 
     }
 

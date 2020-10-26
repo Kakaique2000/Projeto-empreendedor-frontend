@@ -11,15 +11,13 @@ import { CookieService } from '../cookie.service';
     providedIn: 'root'
 })
 export class HomeLoginService {
-
-
     constructor(private http : HttpClient, private cookie : CookieService){}
 
      authenticate(email: string, password: string) {
         
         return this.http.post<any>(API_URL + 'login', {email, password}).pipe(
             tap(e  => {
-                this.cookie.set("token",e.token,0.1)
+                this.cookie.set("token", e.token, 0.1)
             })
         )
     }
@@ -29,14 +27,12 @@ export class HomeLoginService {
         const lastName = newUser.lastName;
         const email = newUser.email;
         const password = newUser.password;
-        const gender = 'Masculino';
+        const gender = newUser.gender;
         const cpf = newUser.cpf;    
-        const phone = '1234587'; 
-        const recruiter = true;
-        
+        const phone = newUser.phone; 
+        const recruiter = newUser.recruiter;
 
-        return this.http.post(API_URL + 'signup',
-         {firstName, lastName,email, password, gender,cpf, phone, recruiter});
+        return this.http.post(API_URL + 'signup', {firstName, lastName, email, password, gender,cpf, phone, recruiter});
     }
 
     sendEmail(email: string) {
