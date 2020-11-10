@@ -20,11 +20,16 @@ export class SearchCardComponent implements OnInit {
     this.contracted = contracted;
     this.contractedChange.emit(this.contracted);
   }
-
+  // ------------------------------------------------
+  public term:string
+  // ------------------------------------------------
   search(term: string) {
+    // ------------------------------------------------
+    this.term = term
+    // ------------------------------------------------
     alert(term);
     this.setContracted(false);
   }
-  
+
 
 }

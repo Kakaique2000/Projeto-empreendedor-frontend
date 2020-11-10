@@ -1,15 +1,15 @@
 <div id ="card-job" class="col-md-auto">
-  <div class="card ">
-    <div class="card-header">Featured</div>
-    <div class="card-body">
-      <h5 class="card-title">Special title treatment</h5>
+  <div class="card mt-2" *ngFor="let elemento of dados">
+    <div class="card-header text-center">{{elemento.title}}</div>
+    <div class="card-body pb-1">
+      <!-- <h5 class="card-title">Special title treatment</h5> -->
       <p class="card-text">
-        With supporting text below as a natural lead-in to additional content.
+        {{elemento.label}}
       </p>
-      <a href="#" class="btn btn-primary">Go somewhere</a>
+      <div class="d-flex justify-content-between align-items-end">
+        <div class="text-muted dias-atras">{{diasAtras(elemento.date)}}</div>
+        <a href="#" class="btn btn-primary">Candidatar-se</a>
+      </div>
     </div>
-  <div class= "text-center">
-    <div class="card-footer text-muted">2 days ago</div>
-  </div>
   </div>
 </div>
