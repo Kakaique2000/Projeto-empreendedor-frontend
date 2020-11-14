@@ -11,6 +11,7 @@ import { HomeLoginModule } from './login-home/home-login.module';
 import { NewJobModule } from './new-job/new-job.module';
 import { HTTP_INTERCEPTORS } from '@angular/common/http';
 import { TokenInterceptor } from './token-interceptor';
+import { NewCompanyModule } from './new-company/new-company.module';
 
 @NgModule({
   declarations: [
@@ -25,6 +26,7 @@ import { TokenInterceptor } from './token-interceptor';
     HomeLoginModule,
     BrowserAnimationsModule,
     NewJobModule,
+    NewCompanyModule
   ],
   providers: [{  provide: HTTP_INTERCEPTORS,
     useClass: TokenInterceptor,

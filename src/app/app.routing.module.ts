@@ -8,6 +8,7 @@ import { NewJobComponent } from './new-job/new-job.component';
 import { ResetPasswordComponent } from './login-home/reset-password/reset-password';
 import { NewPasswordComponent } from './login-home/new-senha/new-password';
 import { MenuUsuarioComponent } from './home/menu-usuario/menu-usuario.component';
+import { NewCompanyComponent } from './new-company/new-company.component';
 
 const routes: Routes = [
   { path: 'home',
@@ -36,6 +37,10 @@ const routes: Routes = [
   },
   { path: 'editprofile', 
   component: MenuUsuarioComponent,
+  data: {showSideMenu:true}
+  },
+  { path: 'newcompany', 
+  component: NewCompanyComponent,
   data: {showSideMenu:true}
   },
   { path: 'dashboard', component: DashboardComponent },

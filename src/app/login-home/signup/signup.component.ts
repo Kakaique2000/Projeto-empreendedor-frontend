@@ -66,7 +66,7 @@ export class SignupComponent implements OnInit{
             this.flag = false;
         },
         erro => {
-            alert(erro);
+            console.log(erro);
             this.signupForm.reset();
         })
     }

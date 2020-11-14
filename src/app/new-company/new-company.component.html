@@ -1,0 +1,73 @@
+  
+  
+  <h1 id="titlenewJob">Cadastre uma nova empresa</h1>
+
+
+  <div class="container">
+    <form [formGroup]="companyForm" (submit)="createCompany()"> 
+      <div class="form-group"> 
+        <label id ="label" for="exampleFormControlInput1">Nome da Empresa</label> 
+        
+        <input type="text" formControlName="name" class="form-control" id="titulo" placeholder="Empresa ABC S/A">
+      </div>
+      
+
+      <div class="form-group">
+        <label id ="label" for="exampleFormControlInput1">Rua</label> 
+        
+        <input type="text" class="form-control" formControlName="street" id="titulo" placeholder="Rua ABC">
+      </div>
+
+      <div class="form-group">
+        <label id ="label" for="exampleFormControlInput1">Número</label> 
+        
+        <input type="number" class="form-control" formControlName="number"  placeholder="123">
+      </div>
+
+      <div class="form-group">
+        <label id ="label" for="exampleFormControlInput1">Complemento</label> 
+        
+        <input type="text" class="form-control" formControlName="complement"  placeholder="Prédio XYZ, 1º Andar">
+      </div>
+
+      <div class="form-group">
+        <label id ="label" for="exampleFormControlInput1">CEP</label> 
+        
+        <input type="text" class="form-control" formControlName="cep"  placeholder="123456-78">
+      </div>
+
+      <div class="form-group">
+        <label id ="label" for="exampleFormControlInput1">Cidade</label> 
+        
+        <input type="text" class="form-control" formControlName="city"  placeholder="Osasco">
+      </div>
+
+      <div class="form-group">
+        <label id ="label" for="exampleFormControlInput1">Estado</label> 
+        
+        <input type="text" class="form-control" formControlName="state"  placeholder="São Paulo">
+      </div>
+
+      <div class="form-group">
+        <label id ="label" for="exampleFormControlInput1">CNPJ</label> 
+        
+        <input type="text" class="form-control" formControlName="cnpj"  placeholder="478778778">
+      </div>
+
+      <div class="btnsendcenter">
+        <button class="button" >Cadastrar Empresa</button>
+      </div>
+
+  </form> 
+
+  
+
+</div>
+
+<div class="container">
+  <h5>Empresas cadastradas: </h5>
+    <div *ngFor='let obj of listCompanies'>
+      <p> {{obj.name}} - {{obj.city}}</p>
+    </div>
+</div>
+  
