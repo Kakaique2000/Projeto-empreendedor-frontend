@@ -22,6 +22,8 @@ export class NewJobComponent implements OnInit {
     private router : Router, private newJobService: NewJobService) {  }
 
   ngOnInit() {
+    console.log('111')
+    console.log(this.listCompanies.length)
     this.configForm()
     this.callAreas()
     this.callCompanies()    
@@ -34,28 +36,30 @@ export class NewJobComponent implements OnInit {
          console.log(this.areas)
         },
         erro => {
+          console.log(erro)
         });
   }
 
   callCompanies() {
     this.newJobService.getAllCompanies()
         .subscribe((res : CompanyModel[]) => {
+          console.log(res)
          this.listCompanies = res['content'] as CompanyModel[]
         },
         erro => {
+          console.log(erro)
         });
   }
 
   createJob(){
     const newJob = this.jobForm.getRawValue() as NewJob;
-    console.log(newJob)
         this.newJobService.createJob(newJob)
         .subscribe(() => {
           alert('Vaga Criada')
           this.routerTo('home')
         },
         erro => {
-            alert(erro);
+          alert('Vaga inválida')
         })
   }
 

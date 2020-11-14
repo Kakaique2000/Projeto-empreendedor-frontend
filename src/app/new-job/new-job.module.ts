@@ -6,7 +6,7 @@ import { NewJobComponent } from './new-job.component';
 import { NewJobService } from './new-job.service';
 import { HttpClientModule } from '@angular/common/http';
 import { SharedModule } from 'src/shared/shared.module';
-
+ 
 
 @NgModule({
     declarations: [NewJobComponent],

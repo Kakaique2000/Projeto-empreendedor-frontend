@@ -33,7 +33,7 @@ export class NewCompanyComponent implements OnInit {
           this.getCompanies()  
         },
         erro => {
-            console.log(erro);
+            alert('Compania inválida, revise os campos cadastrados novamente');
         })
   }
 
@@ -54,8 +54,8 @@ export class NewCompanyComponent implements OnInit {
       cnpj: ['',
           [
               Validators.required,
-              Validators.minLength(16),
-              Validators.maxLength(16)
+              Validators.minLength(18),
+              Validators.maxLength(18)
           ]
       ],
       name: ['',
