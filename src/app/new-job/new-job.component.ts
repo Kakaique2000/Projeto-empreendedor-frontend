@@ -22,8 +22,6 @@ export class NewJobComponent implements OnInit {
     private router : Router, private newJobService: NewJobService) {  }
 
   ngOnInit() {
-    console.log('111')
-    console.log(this.listCompanies.length)
     this.configForm()
     this.callAreas()
     this.callCompanies()    

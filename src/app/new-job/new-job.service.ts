@@ -4,6 +4,7 @@ import { environment as env } from 'src/environments/environment';
 import { ICategoria, NewJob, TypeJob, TypeSalary } from './new-job.model';
 import { CompanyModel } from '../new-company/new-company.model';
 import { CookieService } from '../cookie.service';
+import { MyService } from '../globals';
 
 @Injectable({
   providedIn: 'root'
@@ -11,25 +12,9 @@ import { CookieService } from '../cookie.service';
 export class NewJobService {
 
   public _url: string = "http://localhost:8080/jobs/";
-  public _urlCompanie: string = "http://localhost:8080/users/1/companies";
+  public _urlCompanie: string = "http://localhost:8080/users/";
   
-
-  cities: any[] = [
-    {
-      id:1,
-      city: 'São Paulo'
-    },
-    {
-      id:2,
-      city: 'Rio de Janeiro'
-    },
-    {
-      id:3,
-      city: 'Goias'
-    }
-  ]
-
-  constructor(private http: HttpClient, private cookie : CookieService) { }
+  constructor(private http: HttpClient, private cookie : CookieService, private myService: MyService) { }
 
   getAreas() {
     const header = {
@@ -75,7 +60,7 @@ export class NewJobService {
 
   }
 
-  getAllCompanies(){
+  getAllCompanies() {
     const header = {
       'Authorization': 'Bearer '+this.cookie.get("token")
   }
@@ -84,7 +69,8 @@ export class NewJobService {
       headers: new HttpHeaders(header), 
     };
 
-  return this.http.get<CompanyModel[]>(this._urlCompanie, headerToken)
+
+  return this.http.get<CompanyModel[]>(this._urlCompanie+'1/companies', headerToken)
   }
   
 

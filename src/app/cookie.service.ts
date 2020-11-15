@@ -5,10 +5,10 @@ import { HttpRequest } from '@angular/common/http';
 import { HttpHandler } from '@angular/common/http';
 import { HttpEvent } from '@angular/common/http';
 import { HttpHeaders } from '@angular/common/http';
- 
+
 @Injectable({providedIn: 'root'})
 export class CookieService {
-  
+
    get(cname) {
     var name = cname + "=";
     var decodedCookie = decodeURIComponent(document.cookie);
@@ -31,5 +31,5 @@ export class CookieService {
     var expires = "expires=" + d.toUTCString();
     document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
 }
- 
+
 }

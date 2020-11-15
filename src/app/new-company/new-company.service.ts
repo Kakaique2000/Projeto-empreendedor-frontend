@@ -41,10 +41,7 @@ export class NewCompanyService {
   }
 
 
-  getAllCompanies(){
-
-    console.log('!!!!!!!!!!!!!')
-    console.log(this.cookie.get("token"))
+  getAllCompanies() {
     const header = {
       'Authorization': 'Bearer '+this.cookie.get("token")
   }
