@@ -13,40 +13,41 @@ export class NewJobService {
 
   public _url: string = "http://localhost:8080/jobs/";
   public _urlCompanie: string = "http://localhost:8080/users/";
-  
-  constructor(private http: HttpClient, private cookie : CookieService, private myService: MyService) { }
+
+  constructor(private http: HttpClient, private cookie: CookieService, private myService: MyService) { }
 
   getAreas() {
     const header = {
-      'Authorization': 'Bearer '+this.cookie.get("token")
-  }
+      'Authorization': 'Bearer ' + this.cookie.get("token")
+    }
 
-  const headerToken = {                                                                                                                                                                                 
-      headers: new HttpHeaders(header), 
+    const headerToken = {
+      headers: new HttpHeaders(header),
     };
 
-  return this.http.get<TypeJob>(this._url+'occupations', headerToken)
+    return this.http.get<TypeJob>(this._url + 'occupations', headerToken)
   }
 
   getSalary() {
     const header = {
-      'Authorization': 'Bearer '+this.cookie.get("token")
-  }
+      'Authorization': 'Bearer ' + this.cookie.get("token")
+    }
 
-  const headerToken = {                                                                                                                                                                                 
-      headers: new HttpHeaders(header), 
+    const headerToken = {
+      headers: new HttpHeaders(header),
     };
 
-  return this.http.get<TypeSalary>(this._url+'salaries', headerToken)
+    return this.http.get<TypeSalary>(this._url + 'salaries', headerToken)
   }
 
-  createJob(newjob : NewJob) {
-    const headertste = 'Bearer '+this.cookie.get("token")
+  createJob(newjob: NewJob) {
+    const headertste = 'Bearer ' + this.cookie.get("token")
 
 
     let headers = new HttpHeaders({
       'Content-Type': 'application/json',
-      'Authorization': headertste });
+      'Authorization': headertste
+    });
     let options = { headers: headers };
 
     const title = newjob.title;
@@ -56,22 +57,20 @@ export class NewJobService {
     const companyId = newjob.companyId;
 
 
-    return this.http.post(this._url, {title, description, salary, occupation, companyId}, options);
+    return this.http.post(this._url, { title, description, salary, occupation, companyId }, options);
 
   }
 
   getAllCompanies() {
     const header = {
-      'Authorization': 'Bearer '+this.cookie.get("token")
-  }
+      'Authorization': 'Bearer ' + this.cookie.get("token")
+    }
 
-  const headerToken = {                                                                                                                                                                                 
-      headers: new HttpHeaders(header), 
+    const headerToken = {
+      headers: new HttpHeaders(header),
     };
 
 
-  return this.http.get<CompanyModel[]>(this._urlCompanie+'1/companies', headerToken)
+    return this.http.get<CompanyModel[]>(`${this._urlCompanie}${this.cookie.get('userId')}/companies`, headerToken);
   }
-  
-
 }

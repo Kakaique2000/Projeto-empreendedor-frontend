@@ -28,6 +28,7 @@
     "jquery": "^3.5.1",
     "ng2-currency-mask": "^9.0.2",
     "ngx-cookie-service": "^10.1.1",
+    "ngx-currency": "^2.5.2",
     "ngx-mask": "^7.9.10",
     "rxjs": "~6.3.3",
     "tslib": "^1.9.0",

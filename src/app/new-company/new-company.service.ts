@@ -10,19 +10,19 @@ import { CookieService } from '../cookie.service';
 })
 export class NewCompanyService {
 
-  public _url: string = "http://localhost:8080/users/1/companies";
-  
+  public _url: string = `http://localhost:8080/users/`;
+
 
   constructor(private http: HttpClient,
-              private cookie : CookieService) { }
+    private cookie: CookieService) { }
 
 
-  createCompany(newCompany : CompanyModel) {
-    const headertste = 'Bearer '+this.cookie.get("token")
+  createCompany(newCompany: CompanyModel) {
+    const headertste = 'Bearer ' + this.cookie.get("token")
 
     let headers = new HttpHeaders({
       'Content-Type': 'application/json',
-      'Authorization': headertste 
+      'Authorization': headertste
     });
 
     let options = { headers: headers };
@@ -36,24 +36,24 @@ export class NewCompanyService {
     const city = newCompany.city;
     const state = newCompany.state;
 
-    return this.http.post<CompanyModel>(this._url, {cnpj, name, street, number, complement,cep, city, state}, options);
-    
+    return this.http.post<CompanyModel>(`${this._url}${this.cookie.get('userId')}/companies`,
+    { cnpj, name, street, number, complement, cep, city, state }, options);
   }
 
 
   getAllCompanies() {
     const header = {
-      'Authorization': 'Bearer '+this.cookie.get("token")
-  }
+      'Authorization': 'Bearer ' + this.cookie.get("token")
+    }
 
-  const headerToken = {                                                                                                                                                                                 
-      headers: new HttpHeaders(header), 
+    const headerToken = {
+      headers: new HttpHeaders(header),
     };
 
-  return this.http.get<CompanyModel[]>(this._url, headerToken)
+    return this.http.get<CompanyModel[]>(`${this._url}${this.cookie.get('userId')}/companies`, headerToken);
   }
-  
 
-  
+
+
 
 }

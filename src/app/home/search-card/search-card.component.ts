@@ -8,8 +8,9 @@ import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 export class SearchCardComponent implements OnInit {
 
   searchQuery = ''
-  @Input() contracted = false
-  @Output() contractedChange = new EventEmitter<boolean>()
+  @Input() contracted = false;
+  @Output() contractedChange = new EventEmitter<boolean>();
+  @Output() paramChange = new EventEmitter();
 
   constructor() { }
 
@@ -25,6 +26,8 @@ export class SearchCardComponent implements OnInit {
     alert(term);
     this.setContracted(false);
   }
-  
 
+  emitParamChange(data) {
+    this.paramChange.emit(data);
+  }
 }

@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { JobModel } from './job-list.models';
 import { JobListService } from './job-list.service';
 
@@ -9,20 +9,10 @@ import { JobListService } from './job-list.service';
 })
 export class JobListComponent implements OnInit {
 
-  jobs: JobModel[] = [];
-  
+  @Input() jobs: JobModel[] = [];
+
   constructor(private serviceJob: JobListService) { }
 
-  ngOnInit() {
-    this.serviceJob.getJobs()
-        .subscribe((res : any) => {
-          console.log(res)
-          this.jobs = res['content'] as JobModel[]
-         console.log(this.jobs)
-        },
-        erro => {
-            console.log(erro);
-        });
-  }
+  ngOnInit() {}
 
 }

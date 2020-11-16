@@ -1,31 +1,42 @@
 import { Injectable } from "@angular/core";
-import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 import { JobModel } from './job-list.models';
 import { environment } from 'src/environments/environment';
 import { CookieService } from 'src/app/cookie.service';
+import { HttpParamsOptions } from '@angular/common/http/src/params';
 
 const API_URL = environment.api
 
 @Injectable({
-    providedIn: 'root'
+  providedIn: 'root'
 })
 export class JobListService {
-    public _url: string = "http://localhost:8080/jobs";      
+  public _url: string = "http://localhost:8080/jobs";
 
-  constructor(private http: HttpClient, private cookie : CookieService) { }
+  constructor(private http: HttpClient, private cookie: CookieService) { }
 
-  getJobs() {
+  getJobs(category: any, salary: any) {
 
     const header = {
-        'Authorization': 'Bearer '+ this.cookie.get('token')
+      Authorization: 'Bearer ' + this.cookie.get('token')
+    };
+
+    const params: any = {};
+
+    if (category) {
+      params.occupation = category;
     }
 
-    const headerToken = {                                                                                                                                                                                 
-        headers: new HttpHeaders(header), 
-      };
+    if (salary) {
+      params.salary = salary;
+    }
 
-    return this.http.get<JobModel[]>(this._url, headerToken)
+    const httpOptions = {
+      headers: new HttpHeaders(header),
+      params
+    };
 
+    return this.http.get<JobModel[]>(this._url, httpOptions);
   }
 
 }

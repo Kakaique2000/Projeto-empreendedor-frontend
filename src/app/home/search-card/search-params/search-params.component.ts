@@ -1,6 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { Observable } from 'rxjs';
-import { ICategoria, IDistance } from './search-params.models';
+import { ISalary } from './search-params.models';
 import { SearchParamsService } from './search-params.service';
 import { tap } from 'rxjs/operators';
 
@@ -11,30 +11,51 @@ import { tap } from 'rxjs/operators';
 })
 export class SearchParamsComponent implements OnInit {
 
-  categoriaSelected: ICategoria = {
-    label: 'nenhuma',
-    id: -1,
-  }
-  distanciaSelected: IDistance;
+  @Output() selectEvent = new EventEmitter();
 
-  categorias$: Observable<Array<ICategoria>>;
-  distancias$: Observable<Array<IDistance>>;
+  categoriaSelected: string;
+  salarySelected: ISalary;
+
+  categorias: string[] = [];
+  salaries: ISalary[] = [];
 
 
   constructor(private searchParamsService: SearchParamsService) { }
 
-  selectCategoria(categoria: ICategoria ) {
+  selectCategoria(categoria: string) {
     this.categoriaSelected = categoria;
+
+    this.emitChange({
+      type: 'category',
+      data: categoria,
+    });
   }
-  
-  selectDistancia(distancia: IDistance ) {
-    this.distanciaSelected = distancia;
+
+  selectSalary(salary: ISalary) {
+    this.salarySelected = salary;
+
+    this.emitChange({
+      type: 'salary',
+      data: salary.id,
+    });
+  }
+
+  emitChange(data) {
+    this.selectEvent.emit(data);
   }
 
   ngOnInit() {
-    this.categorias$ = this.searchParamsService.getCategorias();
-    this.distancias$ = this.searchParamsService.getDistancias()
-      .pipe(tap(e => this.distanciaSelected = e[0]));
+    this.searchParamsService.getCategorias().subscribe(categorias => this.categorias = Object.values(categorias));
+
+    this.searchParamsService.getSalaries().subscribe(salaries => {
+      this.salaries = Object.keys(salaries).map((key) => {
+        return {
+          id: key,
+          label: salaries[key],
+        };
+      });
+    });
+
   }
 
 }
