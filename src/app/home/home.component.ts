@@ -11,6 +11,7 @@ export class HomeComponent implements OnInit {
 
   contractedSearchCard: boolean;
   jobs: JobModel[] = [];
+  filter = "";
 
   categorySelected: any;
   salarySelected: any;

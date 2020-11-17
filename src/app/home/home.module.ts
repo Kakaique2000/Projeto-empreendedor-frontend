@@ -11,9 +11,10 @@ import { HttpClientModule } from '@angular/common/http';
 import { SearchParamsService } from './search-card/search-params/search-params.service';
 import { JobListComponent } from './job-list/job-list.component';
 import { MenuUsuarioComponent } from './menu-usuario/menu-usuario.component';
+import { FilterByJob } from './filter-by-job.pipe';
 
 @NgModule({
-  declarations: [HomeComponent, SearchCardComponent, SearchInputComponent, SearchParamsComponent, JobListComponent, MenuUsuarioComponent],
+  declarations: [HomeComponent, SearchCardComponent, SearchInputComponent, SearchParamsComponent, JobListComponent, MenuUsuarioComponent, FilterByJob],
   imports: [
     HttpClientModule,
     FormsModule,
