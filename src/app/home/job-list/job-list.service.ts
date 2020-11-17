@@ -5,7 +5,7 @@ import { environment } from 'src/environments/environment';
 import { CookieService } from 'src/app/cookie.service';
 import { HttpParamsOptions } from '@angular/common/http/src/params';
 
-const API_URL = environment.api
+const API_URL = environment.api;
 
 @Injectable({
   providedIn: 'root'
@@ -15,7 +15,7 @@ export class JobListService {
 
   constructor(private http: HttpClient, private cookie: CookieService) { }
 
-  getJobs(category: any, salary: any) {
+  getJobs(category: any, salary: any, query: string) {
 
     const header = {
       Authorization: 'Bearer ' + this.cookie.get('token')
@@ -23,12 +23,16 @@ export class JobListService {
 
     const params: any = {};
 
-    if (category) {
+    if (category && category !== 'Todos') {
       params.occupation = category;
     }
 
     if (salary) {
       params.salary = salary;
+    }
+
+    if (query && query !== '') {
+      params.title = query;
     }
 
     const httpOptions = {

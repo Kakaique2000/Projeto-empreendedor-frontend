@@ -14,6 +14,7 @@ export class HomeComponent implements OnInit {
 
   categorySelected: any;
   salarySelected: any;
+  query: string;
 
   constructor(private serviceJob: JobListService) { }
 
@@ -30,17 +31,17 @@ export class HomeComponent implements OnInit {
   updateParams(param) {
     if (param.type === 'category') {
       this.categorySelected = param.data;
-    } else {
+    } else if (param.type === 'salary') {
       this.salarySelected = param.data;
+    } else  {
+      this.query = param.data;
     }
 
-    console.log(this.categorySelected);
-    console.log(this.salarySelected);
     this.searchJobs();
   }
 
   searchJobs() {
-    this.serviceJob.getJobs(this.categorySelected, this.salarySelected)
+    this.serviceJob.getJobs(this.categorySelected, this.salarySelected, this.query)
       .subscribe((res: any) => {
         console.log(res);
         this.jobs = res['content'] as JobModel[];

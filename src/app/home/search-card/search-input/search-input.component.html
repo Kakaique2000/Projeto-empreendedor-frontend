@@ -1,9 +1,9 @@
-<div class="input-field">
-  <input (blur)="blur.emit($event)" (focus)="focus.emit($event)" autofocus (submit)="search.emit(searchQuery)" class="w-100 px-4 input-search" type="search" placeholder="Pesquise seu empreguin"
-    [(ngModel)]="searchQuery">
+<form class="input-field" (submit)="submit(searchQuery)">
+  <input (blur)="blur.emit($event)" (focus)="focus.emit($event)" autofocus class="w-100 px-4 input-search" placeholder="Pesquise seu empreguin"
+    [(ngModel)]="this.searchQuery" name="searchQuery">
   <div class="input-search">
-    <button (click)="search.emit(searchQuery)" mat-icon-button>
+    <button type="submit" mat-icon-button>
       <mat-icon>search</mat-icon>
     </button>
   </div>
-</div>
+</form>

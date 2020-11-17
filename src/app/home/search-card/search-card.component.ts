@@ -23,8 +23,7 @@ export class SearchCardComponent implements OnInit {
   }
 
   search(term: string) {
-    alert(term);
-    this.setContracted(false);
+    this.paramChange.emit({type: 'query', data: term});
   }
 
   emitParamChange(data) {

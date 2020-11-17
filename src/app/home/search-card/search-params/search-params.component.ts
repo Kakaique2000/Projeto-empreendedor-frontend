@@ -45,15 +45,20 @@ export class SearchParamsComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.searchParamsService.getCategorias().subscribe(categorias => this.categorias = Object.values(categorias));
+    this.searchParamsService.getCategorias().subscribe(
+      categorias => this.categorias = ['Todos', ...Object.values(categorias)]
+    );
 
     this.searchParamsService.getSalaries().subscribe(salaries => {
-      this.salaries = Object.keys(salaries).map((key) => {
+      const data = Object.keys(salaries).map((key) => {
         return {
           id: key,
           label: salaries[key],
         };
       });
+
+      data.sort((x, y) => (x.label > y.label) ? 1 : -1);
+      this.salaries = [{id: null, label: 'Todos'}, ...data];
     });
 
   }
