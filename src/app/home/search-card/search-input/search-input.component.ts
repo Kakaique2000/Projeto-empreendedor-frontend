@@ -18,4 +18,8 @@ export class SearchInputComponent implements OnInit {
   ngOnInit() {
   }
 
+  submit(event) {
+    this.search.emit(event);
+  }
+
 }

@@ -1,5 +1,5 @@
 interface IParam {
-  id: number;
+  id: string;
   label: string;
 }
 
@@ -7,7 +7,7 @@ interface IUser {
   userName: string;
 }
 
-export interface IDistance extends IParam {
+export interface ISalary extends IParam {
 
 }
 

@@ -6,12 +6,11 @@ import { NewJobComponent } from './new-job.component';
 import { NewJobService } from './new-job.service';
 import { HttpClientModule } from '@angular/common/http';
 import { SharedModule } from 'src/shared/shared.module';
-
+import { CurrencyMaskInputMode, NgxCurrencyModule } from 'ngx-currency';
 
 @NgModule({
     declarations: [NewJobComponent],
-    imports: [ ReactiveFormsModule, CommonModule, RouterModule, FormsModule, HttpClientModule, SharedModule],
-    
+    imports: [ ReactiveFormsModule, CommonModule, RouterModule, FormsModule, HttpClientModule, SharedModule, NgxCurrencyModule],
     providers: [
         NewJobService
       ]

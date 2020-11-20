@@ -9,6 +9,25 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 import { HomeModule } from './home/home.module';
 import { HomeLoginModule } from './login-home/home-login.module';
 import { NewJobModule } from './new-job/new-job.module';
+import { HTTP_INTERCEPTORS } from '@angular/common/http';
+import { TokenInterceptor } from './token-interceptor';
+import { NewCompanyModule } from './new-company/new-company.module';
+import { CurrencyMaskInputMode, NgxCurrencyModule } from 'ngx-currency';
+
+export const customCurrencyMaskConfig = {
+  align: "left",
+  allowNegative: false,
+  allowZero: false,
+  decimal: ",",
+  precision: 2,
+  prefix: "R$ ",
+  suffix: "",
+  thousands: ".",
+  nullable: true,
+  min: null,
+  max: null,
+  inputMode: CurrencyMaskInputMode.FINANCIAL
+};
 
 @NgModule({
   declarations: [
@@ -23,8 +42,14 @@ import { NewJobModule } from './new-job/new-job.module';
     HomeLoginModule,
     BrowserAnimationsModule,
     NewJobModule,
+    NewCompanyModule,
+    NgxCurrencyModule.forRoot(customCurrencyMaskConfig)
   ],
-  providers: [],
+  providers: [{
+    provide: HTTP_INTERCEPTORS,
+    useClass: TokenInterceptor,
+    multi: true
+  },],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

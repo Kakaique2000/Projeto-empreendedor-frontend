@@ -1,50 +1,76 @@
 import { Injectable } from "@angular/core";
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { environment as env } from 'src/environments/environment';
-import { ICategoria } from './new-job.model';
+import { ICategoria, NewJob, TypeJob, TypeSalary } from './new-job.model';
+import { CompanyModel } from '../new-company/new-company.model';
+import { CookieService } from '../cookie.service';
+import { MyService } from '../globals';
 
-@Injectable()
+@Injectable({
+  providedIn: 'root'
+})
 export class NewJobService {
 
-  areas: any[] = [
-    {
-      id:1,
-      type: 'Motorista'
-    },
-    {
-      id:2,
-      type: 'Pintor'
-    },
-    {
-      id:3,
-      type: 'Programador'
-    }
-  ]
+  public _url: string = "http://localhost:8080/jobs/";
+  public _urlCompanie: string = "http://localhost:8080/users/";
 
-  cities: any[] = [
-    {
-      id:1,
-      city: 'São Paulo'
-    },
-    {
-      id:2,
-      city: 'Rio de Janeiro'
-    },
-    {
-      id:3,
-      city: 'Goias'
-    }
-  ]
-
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient, private cookie: CookieService, private myService: MyService) { }
 
   getAreas() {
-    return this.areas;
+    const header = {
+      'Authorization': 'Bearer ' + this.cookie.get("token")
+    }
+
+    const headerToken = {
+      headers: new HttpHeaders(header),
+    };
+
+    return this.http.get<TypeJob>(this._url + 'occupations', headerToken)
   }
 
-  getCities() {
-    return this.cities;
-  }
-  
+  getSalary() {
+    const header = {
+      'Authorization': 'Bearer ' + this.cookie.get("token")
+    }
 
+    const headerToken = {
+      headers: new HttpHeaders(header),
+    };
+
+    return this.http.get<TypeSalary>(this._url + 'salaries', headerToken)
+  }
+
+  createJob(newjob: NewJob) {
+    const headertste = 'Bearer ' + this.cookie.get("token")
+
+
+    let headers = new HttpHeaders({
+      'Content-Type': 'application/json',
+      'Authorization': headertste
+    });
+    let options = { headers: headers };
+
+    const title = newjob.title;
+    const description = newjob.description;
+    const salary = newjob.salary;
+    const occupation = newjob.occupation;
+    const companyId = newjob.companyId;
+
+
+    return this.http.post(this._url, { title, description, salary, occupation, companyId }, options);
+
+  }
+
+  getAllCompanies() {
+    const header = {
+      'Authorization': 'Bearer ' + this.cookie.get("token")
+    }
+
+    const headerToken = {
+      headers: new HttpHeaders(header),
+    };
+
+
+    return this.http.get<CompanyModel[]>(`${this._urlCompanie}${this.cookie.get('userId')}/companies`, headerToken);
+  }
 }
