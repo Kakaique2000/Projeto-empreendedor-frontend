@@ -15,4 +15,15 @@ export class JobListComponent implements OnInit {
 
   ngOnInit() {}
 
+  apply(event) { 
+    console.log(event)
+    this.serviceJob.apply(event)
+        .subscribe((res) => {
+         alert('Candidatura efetiva com sucesso, boa sorte!')
+        },
+        erro => {
+          console.log(erro)
+        });
+  }
+
 }

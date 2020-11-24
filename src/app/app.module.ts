@@ -13,6 +13,7 @@ import { HTTP_INTERCEPTORS } from '@angular/common/http';
 import { TokenInterceptor } from './token-interceptor';
 import { NewCompanyModule } from './new-company/new-company.module';
 import { CurrencyMaskInputMode, NgxCurrencyModule } from 'ngx-currency';
+import { RegistrationsModule } from './registrations/registrations.module';
 
 export const customCurrencyMaskConfig = {
   align: "left",
@@ -43,6 +44,7 @@ export const customCurrencyMaskConfig = {
     BrowserAnimationsModule,
     NewJobModule,
     NewCompanyModule,
+    RegistrationsModule,
     NgxCurrencyModule.forRoot(customCurrencyMaskConfig)
   ],
   providers: [{

@@ -20,7 +20,6 @@ export class HomeComponent implements OnInit {
   constructor(private serviceJob: JobListService) { }
 
   shrinkSearchCard(contracted: boolean) {
-    console.log(contracted);
 
     this.contractedSearchCard = contracted;
   }

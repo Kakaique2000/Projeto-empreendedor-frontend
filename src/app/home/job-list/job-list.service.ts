@@ -43,4 +43,14 @@ export class JobListService {
     return this.http.get<JobModel[]>(this._url, httpOptions);
   }
 
+  apply(idJob: any) {
+    const params = new HttpParams({
+        fromObject: {
+            id: idJob
+        }
+    });
+
+    return this.http.post(this._url +'/' + idJob+'/apply', {},);
+}
+
 }

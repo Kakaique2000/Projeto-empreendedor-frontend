@@ -11,7 +11,7 @@
           <p class="card-text">
             R${{obj.salary}} mensais&#10;
           </p>      
-          <a  class="btn btn-primary">candidatar</a>
+          <a  class="btn btn-primary" (click)="apply(obj.id)">candidatar</a>
         </div>
       <div class= "text-center">
         <div class="card-footer text-muted">{{obj.city}}</div>
