@@ -6,6 +6,8 @@ import { CompanyModel } from '../new-company/new-company.model';
 import { CookieService } from '../cookie.service';
 import { MyService } from '../globals';
 
+const API_URL = environment.api + '/jobs/';
+const API_URL_COMPANIE = environment.api + '/users/';
 @Injectable({
   providedIn: 'root'
 })
@@ -25,7 +27,7 @@ export class NewJobService {
       headers: new HttpHeaders(header),
     };
 
-    return this.http.get<TypeJob>(this._url + 'occupations', headerToken)
+    return this.http.get<TypeJob>(API_URL + 'occupations', headerToken)
   }
 
   getSalary() {
@@ -37,7 +39,7 @@ export class NewJobService {
       headers: new HttpHeaders(header),
     };
 
-    return this.http.get<TypeSalary>(this._url + 'salaries', headerToken)
+    return this.http.get<TypeSalary>(API_URL + 'salaries', headerToken)
   }
 
   createJob(newjob: NewJob) {
@@ -57,7 +59,7 @@ export class NewJobService {
     const companyId = newjob.companyId;
 
 
-    return this.http.post(this._url, { title, description, salary, occupation, companyId }, options);
+    return this.http.post(API_URL, { title, description, salary, occupation, companyId }, options);
 
   }
 
@@ -71,6 +73,6 @@ export class NewJobService {
     };
 
 
-    return this.http.get<CompanyModel[]>(`${this._urlCompanie}${this.cookie.get('userId')}/companies`, headerToken);
+    return this.http.get<CompanyModel[]>(`${API_URL_COMPANIE}${this.cookie.get('userId')}/companies`, headerToken);
   }
 }

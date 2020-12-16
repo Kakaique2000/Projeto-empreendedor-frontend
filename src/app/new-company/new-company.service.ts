@@ -4,7 +4,7 @@ import { environment as env } from 'src/environments/environment';
 import { CompanyModel } from './new-company.model';
 import { CookieService } from '../cookie.service';
 
-
+const API_URL = environment.api + '/users/';
 @Injectable({
   providedIn: 'root'
 })
@@ -36,7 +36,7 @@ export class NewCompanyService {
     const city = newCompany.city;
     const state = newCompany.state;
 
-    return this.http.post<CompanyModel>(`${this._url}${this.cookie.get('userId')}/companies`,
+    return this.http.post<CompanyModel>(`${API_URL}${this.cookie.get('userId')}/companies`,
     { cnpj, name, street, number, complement, cep, city, state }, options);
   }
 
@@ -50,7 +50,7 @@ export class NewCompanyService {
       headers: new HttpHeaders(header),
     };
 
-    return this.http.get<CompanyModel[]>(`${this._url}${this.cookie.get('userId')}/companies`, headerToken);
+    return this.http.get<CompanyModel[]>(`${API_URL}${this.cookie.get('userId')}/companies`, headerToken);
   }
 
 

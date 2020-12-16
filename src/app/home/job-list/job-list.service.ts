@@ -5,7 +5,7 @@ import { environment } from 'src/environments/environment';
 import { CookieService } from 'src/app/cookie.service';
 import { HttpParamsOptions } from '@angular/common/http/src/params';
 
-const API_URL = environment.api;
+const API_URL = environment.api + '/jobs';
 
 @Injectable({
   providedIn: 'root'
@@ -40,7 +40,7 @@ export class JobListService {
       params
     };
 
-    return this.http.get<JobModel[]>(this._url, httpOptions);
+    return this.http.get<JobModel[]>(API_URL, httpOptions);
   }
 
   apply(idJob: any) {
@@ -50,7 +50,7 @@ export class JobListService {
         }
     });
 
-    return this.http.post(this._url +'/' + idJob+'/apply', {},);
+    return this.http.post(API_URL +'/' + idJob+'/apply', {},);
 }
 
 }

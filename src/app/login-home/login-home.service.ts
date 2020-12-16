@@ -16,7 +16,7 @@ export class HomeLoginService {
 
     authenticate(email: string, password: string) {
 
-        return this.http.post<any>('http://localhost:8080/auth/login', { email, password }).pipe(
+        return this.http.post<any>(API_URL+'login', { email, password }).pipe(
             tap(e => {
                 this.myService.setValue(e.user.id)
                 console.log(this.myService.getId)
@@ -37,7 +37,7 @@ export class HomeLoginService {
         const phone = newUser.phone;
         const recruiter = newUser.recruiter;
 
-        return this.http.post('http://localhost:8080/auth/signup', { firstName, lastName, email, password, gender, cpf, phone, recruiter });
+        return this.http.post(API_URL+'signup', { firstName, lastName, email, password, gender, cpf, phone, recruiter });
     }
 
     sendEmail(email: string) {
