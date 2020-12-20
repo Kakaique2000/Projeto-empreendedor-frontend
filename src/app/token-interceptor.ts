@@ -25,7 +25,7 @@ export class TokenInterceptor implements HttpInterceptor {
     for (const key of request.headers.keys()) {
       headerSettings[key] = request.headers.getAll(key);
     }
-    if (token) {
+    if (token && token.length > 0) {
       headerSettings['Authorization'] = 'Bearer ' + token;
     }
     headerSettings['Content-Type'] = 'application/json';

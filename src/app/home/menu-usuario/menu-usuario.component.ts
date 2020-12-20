@@ -1,45 +1,31 @@
 import { Component, OnInit } from '@angular/core';
 import * as $ from 'jquery';
+import { HomeLoginService } from 'src/app/login-home/login-home.service';
 @Component({
   selector: 'app-menu-usuario',
   templateUrl: './menu-usuario.component.html',
   styleUrls: ['./menu-usuario.component.scss']
 })
 export class MenuUsuarioComponent implements OnInit {
+
+  constructor(private ls: HomeLoginService) { }
+
   public edit_infos_pessoais: boolean = true;
   public edit_competencias: boolean = true;
   public contador:number = 0
   dadosMocados = {
     infos_pessoais: {
-      nome: "Hugo Bentivegna",
-      telefone: "(11)99999-8888",
-      email: "hugobentivegna@usp.br",
+      nome: this.ls.loggedUser.name,
+      telefone: this.ls.loggedUser.phone,
+      email: this.ls.loggedUser.email,
       endereco: {
-        rua: "Rua abc def",
-        numero: 927,
-        complemento: "apto 61"
+        rua: "",
+        numero: 0,
+        complemento: ""
       }
     },
     competencias: [
-      {
-        titulo: "Programação",
-        nota: 9
-      },
-      {
-        titulo: "Gambiarra",
-        nota: 10
-      }, {
-        titulo: "Culinária",
-        nota: 6
-      },
-      {
-        titulo: "Rejuntar piso",
-        nota: 4
-      },
-      {
-        titulo: "Canto",
-        nota: 0
-      }]
+    ]
   }
   editar_competencias() {
     this.edit_competencias = !this.edit_competencias;
@@ -149,8 +135,6 @@ abrir_modal(){
 fechar_modal(){
   $("#modal").css('display','none')
 }
-
-constructor() { }
 
 ngOnInit() {
   this.preencher_infos_pessoais()

@@ -1,4 +1,5 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { HomeLoginService } from 'src/app/login-home/login-home.service';
 
 @Component({
   selector: 'app-search-card',
@@ -12,7 +13,7 @@ export class SearchCardComponent implements OnInit {
   @Output() contractedChange = new EventEmitter<boolean>();
   @Output() paramChange = new EventEmitter();
 
-  constructor() { }
+  constructor(private ls: HomeLoginService) { }
 
   ngOnInit() {
   }

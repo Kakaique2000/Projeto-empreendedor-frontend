@@ -4,7 +4,8 @@
 
 export const environment = {
   production: false,
-  api: 'http://ec2-3-225-72-167.compute-1.amazonaws.com:8080'
+  // api: 'http://ec2-3-225-72-167.compute-1.amazonaws.com:8080',
+  api: 'http://localhost:8080',
 };
 
 /*

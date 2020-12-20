@@ -29,7 +29,7 @@ export class NewCompanyComponent implements OnInit {
     console.log(newCompany)
         this.newCompanyService.createCompany(newCompany)
         .subscribe((res) => {
-          alert("compania criada")
+          alert("companhia criada")
           this.getCompanies()  
         },
         erro => {
@@ -54,8 +54,7 @@ export class NewCompanyComponent implements OnInit {
       cnpj: ['',
           [
               Validators.required,
-              Validators.minLength(18),
-              Validators.maxLength(18)
+              Validators.minLength(14),
           ]
       ],
       name: ['',
@@ -74,9 +73,6 @@ export class NewCompanyComponent implements OnInit {
           ]
       ],
       complement: ['',
-          [
-              Validators.required
-          ]
       ],
       cep: ['',
           [

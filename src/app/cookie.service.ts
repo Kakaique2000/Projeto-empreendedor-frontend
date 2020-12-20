@@ -9,6 +9,14 @@ import { HttpHeaders } from '@angular/common/http';
 @Injectable({providedIn: 'root'})
 export class CookieService {
 
+  delete(cname: string) {
+     console.log('deletando cookie: ' + cname);
+     
+      document.cookie = cname + "=" + ';expires=Thu, 01 Jan 1970 00:00:01 GMT' + ";path=/";
+      console.log(document.cookie);
+      
+  }
+
    get(cname) {
     var name = cname + "=";
     var decodedCookie = decodeURIComponent(document.cookie);

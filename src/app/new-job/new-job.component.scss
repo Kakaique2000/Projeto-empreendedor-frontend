@@ -55,6 +55,11 @@ top: 50%;
 }
 .button {
 	background-color:#1d3354;
+	&:disabled {
+		cursor: not-allowed;
+		pointer-events: none;
+		filter: grayscale(100%);
+	}
 }
 .button:active {
 	position:relative;

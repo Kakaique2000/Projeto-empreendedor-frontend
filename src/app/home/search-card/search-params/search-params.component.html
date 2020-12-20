@@ -4,7 +4,7 @@
   <div id="categorias">
 
     <mat-chip color="accent" selected [matMenuTriggerFor]="menuCategoria" aria-label="categoria">
-        Área de Trabalho: {{ categorias ? 'Selecione a área' : categoriaSelected }}
+        Área de Trabalho: {{ !categoriaSelected ? 'Selecione a área' : categoriaSelected }}
         <mat-icon>keyboard_arrow_down
         </mat-icon>
     </mat-chip>
@@ -18,7 +18,7 @@
 
   <div id="salaries">
     <mat-chip color="accent" selected [matMenuTriggerFor]="menuSalaries" aria-label="salaries">
-        Faixa Salarial: {{ salaries ? 'Selecione o salário' : salarySelected }}
+        Faixa Salarial: {{ !salarySelected ? 'Selecione o salário' : salarySelected.label }}
         <mat-icon>keyboard_arrow_down
         </mat-icon>
     </mat-chip>

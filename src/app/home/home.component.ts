@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { HomeLoginService } from '../login-home/login-home.service';
 import { JobModel } from './job-list/job-list.models';
 import { JobListService } from './job-list/job-list.service';
 

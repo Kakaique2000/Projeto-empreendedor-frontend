@@ -28,6 +28,11 @@ export class AppComponent implements OnInit {
 
   }
 
+  isRecruiter() {
+    return this.loginService.loggedUser &&
+      this.loginService.loggedUser.role.find(e => e.name == 'ROLE_RECRUITER');
+  }
+
   clickLogout() {
     this.loginService.logout();
     this.sideMenuOpened = false;
