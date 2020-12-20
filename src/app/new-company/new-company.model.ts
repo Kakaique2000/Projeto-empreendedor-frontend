@@ -3,6 +3,7 @@ import { StringMapWithRename } from '@angular/core/src/render3/jit/compiler_faca
 
 export interface CompanyModel {
 
+  id: number;
   cnpj: String
   name: String
   street: String
