@@ -6,8 +6,8 @@ import { CompanyModel } from '../new-company/new-company.model';
 import { CookieService } from '../cookie.service';
 import { MyService } from '../globals';
 
-const API_URL = environment.api + '/jobs/';
-const API_URL_COMPANIE = environment.api + '/users/';
+const API_URL = env.api + '/jobs/';
+const API_URL_COMPANIE = env.api + '/users/';
 @Injectable({
   providedIn: 'root'
 })

@@ -4,7 +4,7 @@ import { environment as env } from 'src/environments/environment';
 import { CompanyModel } from './new-company.model';
 import { CookieService } from '../cookie.service';
 
-const API_URL = environment.api + '/users/';
+const API_URL = env.api + '/users/';
 @Injectable({
   providedIn: 'root'
 })
