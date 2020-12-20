@@ -4,13 +4,14 @@ import { CompanyModel } from '../new-company/new-company.model';
 import { CookieService } from '../cookie.service';
 import { MyService } from '../globals';
 import { Registrations } from './registrations.model';
+import { environment } from "src/environments/environment";
 
 @Injectable({
   providedIn: 'root'
 })
 export class RegistrationsService {
 
-  public _url: string = "http://localhost:8080/users/";
+  public _url: string = environment.api + "/users/";
 
   constructor(private http: HttpClient, private cookie: CookieService, private myService: MyService) { }
 
