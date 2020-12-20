@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, ActivationEnd, NavigationEnd, Router } from '@angular/router';
 import { filter, map } from 'rxjs/operators';
+import { HomeLoginService } from './login-home/login-home.service';
 
 @Component({
   selector: 'app-root',
@@ -14,7 +15,8 @@ export class AppComponent implements OnInit {
   showSideMenu;
 
   constructor(
-    private route: Router) { }
+    private route: Router,
+    private loginService: HomeLoginService) { }
 
   ngOnInit(): void {
     this.route.events.pipe(
@@ -24,6 +26,11 @@ export class AppComponent implements OnInit {
       console.log(params)
     })
 
+  }
+
+  clickLogout() {
+    this.loginService.logout();
+    this.sideMenuOpened = false;
   }
 
 

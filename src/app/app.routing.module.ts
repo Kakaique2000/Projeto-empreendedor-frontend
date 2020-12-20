@@ -10,19 +10,23 @@ import { NewPasswordComponent } from './login-home/new-senha/new-password';
 import { MenuUsuarioComponent } from './home/menu-usuario/menu-usuario.component';
 import { NewCompanyComponent } from './new-company/new-company.component';
 import { RegistrationsComponent } from './registrations/registrations.component';
+import { LoggedGuard } from './login-home/logged.guard';
 
 const routes: Routes = [
   { path: 'home',
    component: HomeComponent,
-   data: {showSideMenu:true}
+    data: { showSideMenu: true },
+   canActivate: [LoggedGuard],
   },
   { path: 'register',
    component: SignupComponent,
-   data: {showSideMenu:false}
+  data: { showSideMenu: false },
+  
   },
   { path: 'newjob',
    component: NewJobComponent,
-   data: {showSideMenu:true}
+   data: {showSideMenu:true},
+   canActivate: [LoggedGuard],
   },
   { path: 'resetpassword',
    component: ResetPasswordComponent,
@@ -38,15 +42,18 @@ const routes: Routes = [
   },
   { path: 'editprofile', 
   component: MenuUsuarioComponent,
-  data: {showSideMenu:true}
+  data: {showSideMenu:true},
+  canActivate: [LoggedGuard],
   },
   { path: 'newcompany', 
   component: NewCompanyComponent,
-  data: {showSideMenu:true}
+  data: {showSideMenu:true},
+  canActivate: [LoggedGuard],
   },
   { path: 'myregister', 
   component: RegistrationsComponent,
-  data: {showSideMenu:true}
+  data: {showSideMenu:true},
+  canActivate: [LoggedGuard],
   },
   { path: 'dashboard', component: DashboardComponent },
 ];

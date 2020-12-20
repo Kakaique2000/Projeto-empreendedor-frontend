@@ -6,13 +6,16 @@ import { environment } from 'src/environments/environment';
 import { tap } from 'rxjs/operators';
 import { CookieService } from '../cookie.service';
 import { MyService } from '../globals';
+import { Router } from '@angular/router';
 
 const API_URL = environment.api + '/auth/';
 @Injectable({
     providedIn: 'root'
 })
 export class HomeLoginService {
-    constructor(private http: HttpClient, private cookie: CookieService, private myService: MyService) { }
+    constructor(private http: HttpClient, private cookie: CookieService, private myService: MyService, private router: Router) { }
+
+    isLogged = false;
 
     authenticate(email: string, password: string) {
 
@@ -23,6 +26,7 @@ export class HomeLoginService {
 
                 this.cookie.set('token', e.token, 0.1);
                 this.cookie.set('userId', e.user.id, 0.1);
+                this.isLogged = true;
             })
         );
     }
@@ -52,6 +56,13 @@ export class HomeLoginService {
 
     novaSenha(token: string, password: string, passwordConfirmation: string) {
         return this.http.post(API_URL + 'reset-password/handle', { token, password, passwordConfirmation }, { responseType: 'text' });
+    }
+
+    logout() {
+        this.cookie.set('token', null, 0);
+        this.cookie.set('userId', null, 0);
+        this.router.navigate(['/'])
+        this.isLogged = false;
     }
 
 }
