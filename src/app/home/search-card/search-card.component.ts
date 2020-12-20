@@ -13,7 +13,7 @@ export class SearchCardComponent implements OnInit {
   @Output() contractedChange = new EventEmitter<boolean>();
   @Output() paramChange = new EventEmitter();
 
-  constructor(private ls: HomeLoginService) { }
+  constructor(public ls: HomeLoginService) { }
 
   ngOnInit() {
   }

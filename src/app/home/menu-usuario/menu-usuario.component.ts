@@ -8,7 +8,7 @@ import { HomeLoginService } from 'src/app/login-home/login-home.service';
 })
 export class MenuUsuarioComponent implements OnInit {
 
-  constructor(private ls: HomeLoginService) { }
+  constructor(public ls: HomeLoginService) { }
 
   public edit_infos_pessoais: boolean = true;
   public edit_competencias: boolean = true;
